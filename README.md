@@ -3,7 +3,7 @@ This project works with Galaxy Zoo data to write an algorithm to classify galaxi
 
 > This competition asks you to analyze the JPG images of galaxies to find automated metrics that reproduce the probability distributions derived from human classifications. For each galaxy, determine the probability that it belongs in a particular class. Can you write an algorithm that behaves as well as the crowd does? --[Galaxy Zoo, the Galaxy Challenge](https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge)<sup>1</sup>
 
-# Resources
+## Resources
 * http://zoo1.galaxyzoo.org/Tutorial.aspx
 * https://www.galaxyzoo.org/#/classify
 * https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge
