@@ -12,4 +12,5 @@ This project works with Galaxy Zoo data to write an algorithm to classify galaxi
 
 <sup>1</sup>Note: the time for the monetary prize for the challenge is over, but with the skills you learn doing this project you can eventually create entries solving another for-prize-money challenge.
 
+# Advanced Project
 For an even more advanced version of this final project, use one of the data sets on http://www.astro.caltech.edu/~srk/Ay3/Ay03Main.html to make a new discovery!
