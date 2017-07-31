@@ -1,0 +1,27 @@
+import zipfile
+import glob
+zip_ref = zipfile.ZipFile('all_zeros_benchmark.zip', 'r') #reminder to upload zip file on console- AC
+zip_ref.extractall("Downloads")
+zip_ref.close()
+imagelist2 = []
+zip_ref2 = zipfile.ZipFile('images_test_rev1.zip', 'r')
+zip_ref2.extractall("Downloads")
+zip_ref2.close()
+count = 1
+for file2 in glob.glob("Downloads\images_test_rev1\*.jpg"):
+    imagelist2.append(file2[27:])
+counter = 3
+with open('testzeros.csv', 'w') as csvfile:
+    writer = csv.writer(csvfile, delimiter=' ',
+                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    with open('Downloads/all_zeros_benchmark.csv') as f:
+        reader = csv.reader(f) # read rows into a dictionary format
+        for row in reader: # read a row as {column1: value1, column2: value2,...}
+            if counter == 3:
+                writer.writerow([','.join(row)])
+                counter+= 1
+        for i in range(len(imagelist2)):
+            for j in range(37):
+                imagelist2[i] = imagelist2[i]+',0'
+            writer.writerow(imagelist2)
+            
