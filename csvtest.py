@@ -10,7 +10,8 @@ zip_ref2.extractall("Downloads")
 zip_ref2.close()
 count = 1
 for file2 in glob.glob("Downloads\images_test_rev1\*.jpg"):
-    imagelist2.append(file2[27:])
+    imagelist2.append(file2[27:33])
+
 counter = 0
 with open('testzeros.csv', 'w') as csvfile:
     writer = csv.writer(csvfile, delimiter=' ',
