@@ -99,8 +99,7 @@ def traintest(xtrain, xtest, nneighbors, nresponses, filenames):
     with open('testml.csv', 'w', newline='\n') as csvfile:
         writer = csv.writer(csvfile)
         for i in range(len(xtest)):
-            writer.writerow([filenames[i]])
-            writer.writerow([str(probalist[i]), str(problist2[i])])
+            writer.writerow([filenames[i], str(probalist[i]), str(problist2[i])])
     scores = cross_val_score(clf, X, y, cv=5)
     print(scores)
     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
@@ -118,7 +117,7 @@ if __name__ == "__main__":
         im = getRGBPixels(file)
         imagelist.append(im)
         counter += 1
-        if counter >= 25: 
+        if counter >= 6000: 
             break
     imagelist = np.asarray(imagelist)
     rsubblist = []
@@ -148,7 +147,7 @@ if __name__ == "__main__":
         filelist.append(file2[27:33])
         imagelist2.append(im2)
         counter2 += 1
-        if counter2 >= 25: 
+        if counter2 >= 6000: 
             break
     imagelist2 = np.asarray(imagelist2) 
     avgrlist2 = []
