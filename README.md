@@ -1,4 +1,7 @@
 #Instructions
+To run the code for this project, first you must clone (using the following code: git clone url) the repository to your console. This allows you to edit files from the repository but won't change the original file until you push the code back to GitHub.
+
+
 Please pull the code (ClassifyingGalaxies.py, capital C) again and move your solutions training csv file from the zip to the Downloads folder. Then run the code. The updated code in github right now only goes through images 3000-5000 (cause we're not sure how much memory it takes to run more). Once this is finished, please let us know and we will change the code so that it runs the next batch of images. It is important that we change the code between every run for image training files, image test files, and the saved file name.
 
 # ClassifyGalaxies
