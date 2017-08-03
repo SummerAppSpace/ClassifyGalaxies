@@ -100,7 +100,7 @@ def traintest(xtrain, xtest, nneighbors, nresponses, filenames):
         writer = csv.writer(csvfile)
         for i in range(len(xtest)):
             writer.writerow([filenames[i]])
-            writer.writerow([str(probalist[i]) + "," + str(problist2[i])])
+            writer.writerow([str(probalist[i]), str(problist2[i])])
     scores = cross_val_score(clf, X, y, cv=5)
     print(scores)
     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
