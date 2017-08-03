@@ -1,7 +1,7 @@
 # Instructions
-To run the code for this project, first you must clone (using the following code: git clone url) the repository to your console. This allows you to edit files from the repository but won't change the original file until you push the code back to GitHub.
+To run the code for this project, first you must clone (using the following code: git clone url) the repository to your console. This allows you to edit files from the repository but won't change the original file until you push the code back to GitHub. The specific file that we're using is called ClassifyingGalazies.py
 
-To access data from Kaggle to use for project, first a Kaggle account is needed. Once an account is created, go to the the GalaxyZoo competition page and click on the Data tab. This shows all of the files that can be used for this specific project. Download the images test, images training, and training solutions.
+To access data from Kaggle to use for this project, first a Kaggle account is needed (use the link below to get to the Kaggle website). Once an account is created, go to the the GalaxyZoo competition page (this page has all the details about the competition) and click on the Data tab. This shows all of the files that can be used for this specific project. Download the images test, images training, and training solutions files, these are the files that are used in our code.
 
 Please pull the code (ClassifyingGalaxies.py, capital C) again and move your solutions training csv file from the zip to the Downloads folder. Then run the code. The updated code in github right now only goes through images 3000-5000 (cause we're not sure how much memory it takes to run more). Once this is finished, please let us know and we will change the code so that it runs the next batch of images. It is important that we change the code between every run for image training files, image test files, and the saved file name.
 
