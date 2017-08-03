@@ -1,4 +1,4 @@
-#Instructions
+# Instructions
 To run the code for this project, first you must clone (using the following code: git clone url) the repository to your console. This allows you to edit files from the repository but won't change the original file until you push the code back to GitHub.
 
 
