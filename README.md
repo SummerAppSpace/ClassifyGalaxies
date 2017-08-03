@@ -1,3 +1,6 @@
+#Instructions
+Please pull the code again and move your solutions training csv file from the zip to the Downloads folder. Then run the code. The updated code in github right now only goes through images 3000-5000 (cause we're not sure how much memory it takes to run more). Once this is finished, please let us know and we will change the code so that it runs the next batch of images. It is important that we change the code between every run for image training files, image test files, and the saved file name.
+
 # ClassifyGalaxies
 This project works with Galaxy Zoo data to write an algorithm to classify galaxies. First learn about Galaxy Classification on [Galaxy Zoo](http://zoo1.galaxyzoo.org/Tutorial.aspx). Next try to write a classification algorithm for galaxies using the data and format available at [Galaxy Zoo, the Galaxy Challenge](https://www.kaggle.com/c/galaxy-zoo-the-galaxy-challenge). Submit your results to the challenge.
 
