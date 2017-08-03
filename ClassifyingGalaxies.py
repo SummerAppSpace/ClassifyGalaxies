@@ -14,7 +14,6 @@ from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from sklearn import neighbors, datasets
-
 def getRGBPixels(image):
     '''
     This is going to get the RGB value of every pixel in the images.
@@ -25,7 +24,6 @@ def getRGBPixels(image):
     image.close()
     rgbimage.close()
     return colors
-
 def getAllImagesRGB(images):
     '''
     This gets the pixels of all the images into one array.
@@ -34,8 +32,6 @@ def getAllImagesRGB(images):
     for i in images:
         rgblist.append(getRGBPixels(i))
     return np.asarray(rgblist)
-
-
 def traintest(xtrain, xtest, nneighbors, nresponses, filenames):
     #code for the training solutions columns we want for this specific q
     columns = defaultdict(list) # each value in each column is appended to a list
@@ -60,9 +56,6 @@ def traintest(xtrain, xtest, nneighbors, nresponses, filenames):
     #yopt = [columns['Class9.1'], columns['Class9.2'], columns['Class9.3']]
     #yopt = [columns['Class10.1'], columns['Class10.2'], columns['Class10.3']]
     #yopt = [columns['Class11.1'], columns['Class11.2'], columns['Class11.3'], columns['Class11.4'], columns['Class11.5'], columns['Class11.6']]
-
-
-
     columnlist = ['Class1.1', 'Class1.2', 'Class1.3']
     for i in range(len(columns['Class1.1'])):
         for entry in yopt:
@@ -84,7 +77,6 @@ def traintest(xtrain, xtest, nneighbors, nresponses, filenames):
                 
     X = xtrain[:25]
     y = finallist[:25]
-
     clf = KNeighborsClassifier(n_neighbors=nneighbors)
     clf.fit(X, y) 
     clf.classes_
@@ -94,19 +86,15 @@ def traintest(xtrain, xtest, nneighbors, nresponses, filenames):
         print(clf.predict(xtest[i]))
         probalist.append(clf.predict_proba(xtest[i])[0][0])
         problist2.append(clf.predict_proba(xtest[i])[0][1])
-
     
-    with open('testml.csv', 'w', newline='\n') as csvfile:
+    with open('testml30005000.csv', 'w', newline='\n') as csvfile:
         writer = csv.writer(csvfile)
         for i in range(len(xtest)):
             writer.writerow([filenames[i], str(probalist[i]), str(problist2[i])])
     scores = cross_val_score(clf, X, y, cv=5)
     print(scores)
     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
-
-
     #return('hi')
-
 if __name__ == "__main__":
     imagelist = []
     zip_ref = zipfile.ZipFile('images_training_rev1.zip', 'r')
@@ -114,11 +102,12 @@ if __name__ == "__main__":
     zip_ref.close()
     counter = 0
     for file in glob.glob("Downloads\images_training_rev1\*.jpg"):
-        im = getRGBPixels(file)
-        imagelist.append(im)
         counter += 1
-        if counter >= 6000: 
-            break
+        if counter > 3000: 
+            im = getRGBPixels(file)
+            imagelist.append(im)
+            if counter >= 5000:
+                break
     imagelist = np.asarray(imagelist)
     rsubblist = []
     avgrlist = []
@@ -143,12 +132,13 @@ if __name__ == "__main__":
     zip_ref2.close()
     counter2 = 0
     for file2 in glob.glob("Downloads\images_test_rev1\*.jpg"):
-        im2 = getRGBPixels(file2)
-        filelist.append(file2[27:33])
-        imagelist2.append(im2)
         counter2 += 1
-        if counter2 >= 6000: 
-            break
+        if counter2 > 3000: 
+            im2 = getRGBPixels(file2)
+            filelist.append(file2[27:33])
+            imagelist2.append(im2)
+            if counter2 >= 5000:
+                break
     imagelist2 = np.asarray(imagelist2) 
     avgrlist2 = []
     avgblist2 = []
