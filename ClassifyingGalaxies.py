@@ -1,5 +1,6 @@
 #9:43 25 images
 #q1
+import sys
 from sklearn.model_selection import cross_val_score
 from collections import defaultdict
 import numpy as np
@@ -495,7 +496,7 @@ def traintest(xtrain, xtest, nneighbors, filenames):
             else:
                 entry[i] = 0
     X = xtrain
-    y = finallist[:25] #take out for christine 
+    y = finallist#[:25] #take out for christine 
     clf = KNeighborsClassifier(n_neighbors=nneighbors)
     clf.fit(X, y) 
     clf.classes_
@@ -603,17 +604,24 @@ def traintest(xtrain, xtest, nneighbors, filenames):
     
     
 if __name__ == "__main__":
+    try:
+        begin = int(sys.argv[1])
+        end = int(sys.argv[2])
+    except IndexError:
+        begin = 0
+        end = 25
+    
     imagelist = []
     zip_ref = zipfile.ZipFile('images_training_rev1.zip', 'r')
     zip_ref.extractall("Downloads")
     zip_ref.close()
     counter = 0
-    for file in glob.glob("Downloads\images_training_rev1\*.jpg"):
-        counter+=1
+    for file in glob.glob("Downloads/images_training_rev1/*.jpg"):
+        #counter+=1
         im = getRGBPixels(file)
         imagelist.append(im)
-        if counter >=25: #take out for christine
-            break
+        #if counter >=25: #take out for christine
+        #    break
     imagelist = np.asarray(imagelist)
     rsubblist = []
     avgrlist = []
@@ -637,13 +645,14 @@ if __name__ == "__main__":
     zip_ref2.extractall("Downloads")
     zip_ref2.close()
     counter2 = 0
-    for file2 in glob.glob("Downloads\images_test_rev1\*.jpg"):
+    for file2 in glob.glob("Downloads/images_test_rev1/*.jpg"):
         counter2 += 1
-        im2 = getRGBPixels(file2)
-        filelist.append(file2[27:33])
-        imagelist2.append(im2)
-        if counter2 >= 25:
-            break
+        if counter2 >= begin:
+            im2 = getRGBPixels(file2)
+            filelist.append(file2[27:33])
+            imagelist2.append(im2)
+            if counter2 > end:
+                break
     imagelist2 = np.asarray(imagelist2) 
     avgrlist2 = []
     avgblist2 = []
