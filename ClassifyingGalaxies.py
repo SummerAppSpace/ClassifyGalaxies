@@ -652,7 +652,7 @@ if __name__ == "__main__":
             im2 = getRGBPixels(file2)
             filelist.append(file2[27:33])
             imagelist2.append(im2)
-            if counter2 > end:
+            if counter2 >= end:
                 break
     imagelist2 = np.asarray(imagelist2) 
     avgrlist2 = []
