@@ -576,7 +576,7 @@ def traintest(xtrain, xtest, nneighbors, filenames):
         with open('Downloads/all_zeros_benchmark.csv') as f:
             reader = csv.reader(f) # read rows into a dictionary format
             for row in reader: # read a row as {column1: value1, column2: value2,...}
-                if rowcount == 0:
+                if rowcount == 0 and filenames[0] == '100018':
                     writer.writerow([','.join(row)])
                     rowcount+= 1
         for i in range(len(xtest)):
