@@ -33,7 +33,7 @@ def getAllImagesRGB(images):
     for i in images:
         rgblist.append(getRGBPixels(i))
     return np.asarray(rgblist)
-def traintest(xtrain, xtest, nneighbors, filenames):
+def traintest(xtrain, xtest, nneighbors, filenames, begin, end):
     #code for the training solutions columns we want for this specific q
     columns = defaultdict(list) # each value in each column is appended to a list
     
@@ -571,11 +571,12 @@ def traintest(xtrain, xtest, nneighbors, filenames):
     
     
     rowcount = 0
-    with open('testml10001500final.csv', 'w', newline='\n') as csvfile:
+    newfilename = 'testml' + str(begin) + str(end) + '.csv'
+    with open(newfilename, 'w', newline='\n') as csvfile:
         writer = csv.writer(csvfile)
         with open('Downloads/all_zeros_benchmark.csv') as f:
-            reader = csv.reader(f) # read rows into a dictionary format
-            for row in reader: # read a row as {column1: value1, column2: value2,...}
+            reader = csv.reader(f) # read rows
+            for row in reader: 
                 if rowcount == 0 and filenames[0] == '100018':
                     writer.writerow([','.join(row)])
                     rowcount+= 1
@@ -669,5 +670,5 @@ if __name__ == "__main__":
         avgrlist2.append(avgr2)
         rsubblist2.append([avgr2-avgb2]) #takes the average red - blue of all pixels in test dataset
     
-    res = traintest(rsubblist, rsubblist2, 15, filelist)
+    res = traintest(rsubblist, rsubblist2, 15, filelist, begin, end)
     print(res)
