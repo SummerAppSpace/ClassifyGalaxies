@@ -10,11 +10,12 @@ zip_ref2.extractall("Downloads")
 zip_ref2.close()
 count = 1
 for file2 in glob.glob("Downloads\images_test_rev1\*.jpg"):
-    imagelist2.append(file2[27:])
+    imagelist2.append(file2[27:33])
+
 counter = 0
 with open('testzeros.csv', 'w') as csvfile:
     writer = csv.writer(csvfile, delimiter=' ',
-                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                            quotechar='', quoting=csv.QUOTE_NONE, escapechar='\\')
     with open('Downloads/all_zeros_benchmark.csv') as f:
         reader = csv.reader(f) # read rows into a dictionary format
         for row in reader: # read a row as {column1: value1, column2: value2,...}
@@ -24,4 +25,4 @@ with open('testzeros.csv', 'w') as csvfile:
         for i in range(len(imagelist2)):
             for j in range(37):
                 imagelist2[i] = imagelist2[i]+',0'
-            writer.writerow(imagelist2[i])
+            writer.writerow([str(imagelist2[i])])
