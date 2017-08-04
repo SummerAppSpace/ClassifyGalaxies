@@ -609,7 +609,7 @@ if __name__ == "__main__":
         begin = int(sys.argv[1])
         end = int(sys.argv[2])
     except IndexError:
-        begin = 0
+        begin = 1
         end = 25
     
     imagelist = []
